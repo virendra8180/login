@@ -1,0 +1,13 @@
+
+<h1>Users <h1> 
+<% if current_user %>
+    <p>The User is <%=current_user.user_name %></p>
+    <p>And the Books Are</p>
+    <% current_user.books.each do |user|%>
+    <p> <%=user.name %></p>
+    <% end %>
+    <%= link_to 'Logout', '/logout', :data => { :confirm => 'Are you sure?' }%>
+<% else %>
+    <%= link_to 'Signup', '/signup'%>
+    <%= link_to 'Login', '/login'%>
+<% end %>
